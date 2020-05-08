@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Auugment</string>
+
+    <string name="button_ar">AR</string>
+
+    <string name="button_foo_add">Add Foo</string>
+    <string name="button_foo_dec">Remove Foo</string>
+    <string name="count_foo">0</string>
+    <string name="name_foo">Foo count:</string>
+
+    <string name="button_bar_add">Add Bar</string>
+    <string name="button_bar_dec">Remove Bar</string>
+    <string name="count_bar">0</string>
+    <string name="name_bar">Bar count:</string>
+</resources>
