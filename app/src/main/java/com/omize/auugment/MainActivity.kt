@@ -10,14 +10,12 @@ const val EXTRA_MESSAGE2 = "com.omize.auugment.MESSAGE2"
 var foo_value = 0
 var bar_value = 0
 
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
     fun activityAR(view: View) {
         val text = "Not my job -R"
         val intent = Intent(this, ArActivity::class.java).apply{
