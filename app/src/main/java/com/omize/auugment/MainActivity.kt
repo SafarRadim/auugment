@@ -14,13 +14,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        try {
+            this.supportActionBar!!.hide()
+        } catch (e: NullPointerException) {}
+
         setContentView(R.layout.activity_main)
     }
     fun activityAR(view: View) {
-        val text = "Not my job -R"
-        val intent = Intent(this, ArActivity::class.java).apply{
-            putExtra(EXTRA_MESSAGE, text)
-        }
+        val intent = Intent(this, ArActivity::class.java)
         startActivity(intent)
     }
 
