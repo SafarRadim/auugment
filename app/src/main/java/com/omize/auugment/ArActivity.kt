@@ -11,10 +11,5 @@ class ArActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ar)
 
-        val message = intent.getStringExtra(EXTRA_MESSAGE)
-
-        val textView = findViewById<TextView>(R.id.textView).apply {
-            text = message
-        }
     }
 }
