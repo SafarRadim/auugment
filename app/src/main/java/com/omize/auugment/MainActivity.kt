@@ -4,6 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import android.graphics.Typeface
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 const val EXTRA_MESSAGE = "com.omize.auugment.MESSAGE"
 const val EXTRA_MESSAGE2 = "com.omize.auugment.MESSAGE2"
@@ -19,7 +27,10 @@ class MainActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {}
 
         setContentView(R.layout.activity_main)
+
+
     }
+
     fun activityAR(view: View) {
         val intent = Intent(this, ArActivity::class.java)
         startActivity(intent)
