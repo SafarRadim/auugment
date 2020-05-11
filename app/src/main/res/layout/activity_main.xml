@@ -31,16 +31,13 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="235dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="88dp"
-        android:background="@drawable/buttonrounded"
+        android:layout_width="204dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="60dp"
+
         android:onClick="activityAR"
         android:text="@string/button_ar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logotextmain" />
 
