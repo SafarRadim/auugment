@@ -23,21 +23,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="72dp"
         android:onClick="increaseFoo"
         android:text="@string/button_foo_add"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/launchAR" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="204dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="80dp"
+        android:id="@+id/launchAR"
+        android:layout_width="128dp"
+        android:layout_height="195dp"
         android:layout_marginTop="60dp"
 
         android:onClick="activityAR"
         android:text="@string/button_ar"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logotextmain" />
 
@@ -77,4 +79,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addtest"
+        android:layout_width="120dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="60dp"
+        android:text="ADD Test"
+        app:layout_constraintStart_toEndOf="@+id/launchAR"
+        app:layout_constraintTop_toBottomOf="@+id/logotextmain" />
+
+    <Button
+        android:id="@+id/removetest"
+        android:layout_width="120dp"
+        android:layout_height="98dp"
+        android:text="removetest"
+        app:layout_constraintStart_toEndOf="@+id/launchAR"
+        app:layout_constraintTop_toBottomOf="@+id/addtest" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/launchAR"
+        tools:layout_editor_absoluteX="102dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
