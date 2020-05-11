@@ -12,5 +12,7 @@
     <string name="button_bar_dec">Remove Bar</string>
     <string name="count_bar">0</string>
     <string name="name_bar">Bar count:</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button_map">Map</string>
 
 </resources>

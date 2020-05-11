@@ -12,6 +12,7 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.Button
+import java.io.File
 
 
 const val EXTRA_MESSAGE = "com.omize.auugment.MESSAGE"
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {}
 
-        setContentView(R.layout.activity_main)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        setContentView(R.layout.activity_main)
         val testtracker = findViewById<TextView>(R.id.textView2)
         val addtestbtn = findViewById<Button>(R.id.addtest)
         val removetestbtn = findViewById<Button>(R.id.removetest)
@@ -42,7 +43,11 @@ class MainActivity : AppCompatActivity() {
             test_value--
             testtracker.setText(test_value.toString())
         }
+    }
 
+    fun activityMap(view: View) {
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     fun activityAR(view: View) {
