@@ -51,9 +51,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         findViewById<FloatingActionButton>(R.id.fabLocate).setOnClickListener {
+            launchAR()
             //getLocation()
             //updatePosition(posix, posiy)
-            launchAR()
         }
 
         findViewById<FloatingActionButton>(R.id.fabInventory).setOnClickListener {

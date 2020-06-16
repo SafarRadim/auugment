@@ -30,8 +30,8 @@ class ArActivity : AppCompatActivity() {
     private var objType:Int = 0
     private var vpx:Float = 0.0f
     private var vpy:Float = 0.0f
-    private var isTracking: Boolean = false
-    private var isHitting: Boolean = false
+    private var trackbool: Boolean = false
+    private var hitbool: Boolean = false
     private lateinit var arFragment: ArFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,44 +91,6 @@ class ArActivity : AppCompatActivity() {
         }
     }
 
-    private fun fragUpdate() {
-        updateTracking()
-        if(isTracking) {
-            val changingtest = updateHitTest()
-            if(changingtest) {
-                fabState(isHitting)
-            }
-        }
-    }
-
-    private fun updateHitTest(): Boolean {
-        val frame = arFragment.arSceneView.arFrame
-
-        val hits: List<HitResult>
-        val wasHitting = isHitting
-        isHitting = false
-        if (frame != null) {
-            hits = frame.hitTest(vpx, vpy)
-            for (hit in hits) {
-                val trackable = hit.trackable
-                if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
-                    isHitting = true
-                    break
-                }
-            }
-        }
-        return wasHitting != isHitting
-    }
-
-
-    private fun updateTracking(): Boolean {
-        val frame = arFragment.arSceneView.arFrame
-        val wasTracking = isTracking
-        isTracking = frame?.camera?.trackingState == TrackingState.TRACKING
-        return isTracking != wasTracking
-    }
-
-
     private fun addObject(model: Uri) {
         val frame = arFragment.arSceneView.arFrame
         if (frame != null) {
@@ -144,24 +106,44 @@ class ArActivity : AppCompatActivity() {
     }
 
     private fun placeObject(fragment: ArFragment, anchor: Anchor, model: Uri) {
-        ModelRenderable.builder()
-            .setSource(fragment.context, model)
-            .build()
-            .thenAccept {
-                addNodeToScene(fragment, anchor, it)
-            }
-            .exceptionally {
-                Toast.makeText(this@ArActivity, "Error", Toast.LENGTH_SHORT).show()
-                return@exceptionally null
-            }
+        ModelRenderable.builder().setSource(fragment.context, model).build().thenAccept { placeit(fragment, anchor, it) }.exceptionally {return@exceptionally null}
     }
 
-    private fun addNodeToScene(fragment: ArFragment, anchor: Anchor, renderable: ModelRenderable) {
+    private fun placeit(fragment: ArFragment, anchor: Anchor, renderable: ModelRenderable) {
         val anchorNode = AnchorNode(anchor)
-        val transformableNode = TransformableNode(fragment.transformationSystem)
-        transformableNode.renderable = renderable
-        transformableNode.setParent(anchorNode)
+        val objNode = TransformableNode(fragment.transformationSystem)
+        objNode.renderable = renderable
+        objNode.setParent(anchorNode)
         fragment.arSceneView.scene.addChild(anchorNode)
-        transformableNode.select()
+        objNode.select()
+    }
+
+    private fun fragUpdate() {
+        updateTracking()
+        if(trackbool) {
+            val frame = arFragment.arSceneView.arFrame
+            val hits: List<HitResult>
+            val hitbefore = hitbool
+            hitbool = false
+            if (frame != null) {
+                //need optt + have to be optimized
+                hits = frame.hitTest(vpx, vpy)
+                for (hit in hits) {
+                    val trackable = hit.trackable
+                    if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
+                        hitbool = true
+                        break
+                    }
+                }
+            }
+            if(hitbefore != hitbool) {fabState(hitbool)}
+        }
+    }
+
+    private fun updateTracking(): Boolean {
+        val frame = arFragment.arSceneView.arFrame
+        val trackbefore = trackbool
+        trackbool = frame?.camera?.trackingState == TrackingState.TRACKING
+        return trackbool != trackbefore
     }
 }
