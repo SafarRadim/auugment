@@ -52,7 +52,7 @@ class ArActivity : AppCompatActivity() {
             fragUpdate()
         }
 
-        findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.showobject).setOnClickListener {
             when(objType) {
                 0 -> addObject(Uri.parse("orange.sfb"))
                 1 -> addObject(Uri.parse("meat.sfb"))
@@ -69,7 +69,7 @@ class ArActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<FloatingActionButton>(R.id.floatingActionButton2).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.changeobject).setOnClickListener {
             when(objType) {
                 0, 1, 2, 3, 4, 5, 6 -> objType++
                 else -> objType = 0
@@ -83,11 +83,11 @@ class ArActivity : AppCompatActivity() {
     @SuppressLint("RestrictedApi")
     private fun fabState(enabled: Boolean) {
         if(enabled) {
-            floatingActionButton.isEnabled = true
-            floatingActionButton.visibility = View.VISIBLE
+            showobject.isEnabled = true
+            showobject.visibility = View.VISIBLE
         } else {
-            floatingActionButton.isEnabled = false
-            floatingActionButton.visibility = View.GONE
+            showobject.isEnabled = false
+            showobject.visibility = View.GONE
         }
     }
 
