@@ -1,0 +1,68 @@
+{
+  animations: [
+    {
+      path: 'objects/egg.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'Material.001',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'textura',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'objects/egg.fbx',
+    name: 'egg',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'objects\\egg.fbm\\textura.jpg',
+      name: 'textura',
+      pipeline_name: 'egg.fbm\\textura.jpg',
+    },
+  ],
+  version: '0.54:2',
+}
