@@ -22,7 +22,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.view.Display
 import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.google.ar.core.*
@@ -107,7 +106,7 @@ class ArActivity : AppCompatActivity() {
         objNode.setParent(anchorNode)
         fragment.arSceneView.scene.addChild(anchorNode)
         objNode.select()
-        objNode.setOnTapListener{_, event->
+        objNode.setOnTapListener{_, _->
             when (objType) {
                 0 -> Toast.makeText(this, "Nalezen pomeranč!", Toast.LENGTH_LONG).show()
                 1 -> Toast.makeText(this, "Nalezeno maso!", Toast.LENGTH_LONG).show()
