@@ -85,3 +85,8 @@ sceneform.asset('objects/fries.fbx',
         'default',
         'objects/fries.sfa',
         'src/main/assets/fries')
+
+sceneform.asset('objects/wheat.fbx',
+        'default',
+        'objects/wheat.sfa',
+        'src/main/assets/wheat')
