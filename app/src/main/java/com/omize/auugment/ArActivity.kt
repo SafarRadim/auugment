@@ -31,7 +31,7 @@ import kotlin.random.Random
 
 class ArActivity : AppCompatActivity() {
     var nom = true
-    private var objType:Int = Random.nextInt(0,8)
+    private var objType:Int = Random.nextInt(0,9)
     private var vpx:Float = 0.0f
     private var vpy:Float = 0.0f
     private var trackbool: Boolean = false
@@ -48,7 +48,7 @@ class ArActivity : AppCompatActivity() {
             finish()
         }
 
-        Toast.makeText(this, "Hledej kolem sebe objekt!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Hledej na zemi kolem sebe objekt!", Toast.LENGTH_LONG).show()
 
         val viewset = findViewById<View>(android.R.id.content)
         vpx = viewset.x/2
@@ -60,12 +60,24 @@ class ArActivity : AppCompatActivity() {
         }
     }
 
+    private fun addtoinv(type: Int) {
+        val nii = "O${type}"
+        val sharedPref = getSharedPreferences("inv", Context.MODE_PRIVATE) ?: return
+        var value = sharedPref.getInt(nii, 0)
+        value++
+        with (sharedPref.edit()) {
+            putInt(nii, value)
+            commit()
+        }
+    }
+
     @SuppressLint("RestrictedApi")
     private fun fabState(enabled: Boolean) {
         if(nom) {
             Toast.makeText(this, "NALEZEN OBJEKT!", Toast.LENGTH_SHORT).show()
             if (enabled) {
                 nom = false
+
                 when (objType) {
                     0 -> addObject(Uri.parse("orange.sfb"))
                     1 -> addObject(Uri.parse("meat.sfb"))
@@ -76,6 +88,7 @@ class ArActivity : AppCompatActivity() {
                     6 -> addObject(Uri.parse("potato.sfb"))
                     7 -> addObject(Uri.parse("fries.sfb"))
                     8 -> addObject(Uri.parse("wheat.sfb"))
+                    9 -> addObject(Uri.parse("bread.sfb"))
                 }
             }
         }
@@ -117,7 +130,9 @@ class ArActivity : AppCompatActivity() {
                 6 -> Toast.makeText(this, "Nalezena brambora!", Toast.LENGTH_LONG).show()
                 7 -> Toast.makeText(this, "Nalezeny hranolky!", Toast.LENGTH_LONG).show()
                 8 -> Toast.makeText(this, "Nalezena pšenice!", Toast.LENGTH_LONG).show()
+                9 -> Toast.makeText(this, "Nalezen chléb!", Toast.LENGTH_LONG).show()
             }
+            addtoinv(objType)
             finish()
         }
     }

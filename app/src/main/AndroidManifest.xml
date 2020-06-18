@@ -22,12 +22,19 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:theme="@style/OptiTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.omize.auugment.MainActivity" />
         </activity>
-        <activity android:name=".InvActivity" />
+        <activity
+            android:name=".InvActivity"
+            android:label="@string/title_activity_inventory"
+            android:theme="@style/OptiTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.omize.auugment.MainActivity" />
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
