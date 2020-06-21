@@ -24,7 +24,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_gps_fixed_black_24dp" />
+        app:maxImageSize="60dp"
+        app:srcCompat="@drawable/ic_ar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabInventory"

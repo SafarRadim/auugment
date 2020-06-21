@@ -13,7 +13,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -90,3 +90,13 @@ sceneform.asset('objects/wheat.fbx',
         'default',
         'objects/wheat.sfa',
         'src/main/assets/wheat')
+
+sceneform.asset('objects/bread.fbx',
+        'default',
+        'objects/bread.sfa',
+        'src/main/assets/bread')
+
+sceneform.asset('objects/egg-bacon-bread.fbx',
+        'default',
+        'objects/egg-bacon-bread.sfa',
+        'src/main/assets/egg-bacon-bread')

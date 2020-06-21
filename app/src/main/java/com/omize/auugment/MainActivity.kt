@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         findViewById<FloatingActionButton>(R.id.fabLocate).setOnClickListener {
             launchAR()
-            //getLocation()
             //updatePosition(posix, posiy)
         }
 
@@ -63,8 +62,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         findViewById<FloatingActionButton>(R.id.fabSettings).setOnClickListener {
             launchSettings()
         }
-
-        Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -73,14 +70,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         posix = 49.200218
         posiy = 16.607893
         val loca = LatLng(posix, posiy)
-        val circle = mMap.addCircle(
-            CircleOptions()
-                .center(loca)
-                .radius(5.0)
-                .fillColor(Color.BLUE)
-        )
-        mMap.addMarker(MarkerOptions().position(loca).title("BETA TADY JSI"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loca, 13.0f))
+        updatePosition(posix, posiy)
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loca, 18.0f))
     }
 
     private fun updatePosition(coordinateX: Double, coordinateY: Double, camscale: Float = 18.0f) {
